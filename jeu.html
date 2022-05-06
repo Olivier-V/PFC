@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const P = "Pierre";
+    const F = "Feuille";
+    const C = "Ciseaux";
+
+    const coups = [P, C, F];
+
+    function joueCoupAleatoire() {
+        return parseInt(Math.random() * coups.length);
+    }
+
+    console.log(joueCoupAleatoire());
+    var scoreJoueur = 0;
+    var scoreRobot = 0;
+    while (scoreJoueur <= 3 || scoreRobot <= 3) {
+        let choixRobot = coups[joueCoupAleatoire()];
+        let choixJoueur = prompt("Joueur, choisir P ou F ou C");
+        if (choixJoueur != "P" || choixJoueur != 'F' || choixJoueur != 'C') {
+            let choixJoueur = prompt("Choix possibles, choisir P ou F ou C");
+        } else {
+            if (choixJoueur == "P" && choixRobot == "C") {
+                scoreJoueur += 1;
+                alert("gagné");
+            }
+            if (choixJoueur == "P" && choixRobot == "P") {
+                console.log("egalité");
+                alert("egalité");
+            }
+            if (choixJoueur == "P" && choixRobot == "F") {
+                scoreRobot += 1;
+                alert("perdu");
+            }
+            if (choixJoueur == "F" && choixRobot == "C") {
+                scoreRobot += 1;
+                alert("perdu");
+            }
+            if (choixJoueur == "F" && choixRobot == "P") {
+                scoreJoueur += 1;
+                alert("gagné");
+            }
+            if (choixJoueur == "F" && choixRobot == "F") {
+                console.log("egalité");
+                alert("egalité");
+            }
+            if (choixJoueur == "C" && choixRobot == "C") {
+                console.log("egalité");
+                alert("egalité");
+            }
+            if (choixJoueur == "C" && choixRobot == "P") {
+                scoreRobot += 1;
+                alert("perdu");
+            }
+            if (choixJoueur == "C" && choixRobot == "F") {
+                scoreJoueur += 1;
+                alert("gagné");
+            }
+
+        }
+    }
+</script>
+
+</html>
